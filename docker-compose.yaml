@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    volumes:
+      - quizcard-volume:/usr/src/app/backend/data
+      #- ./data/questions.json:/data/questions.json  <<< useful if you want to rely on questions.json in local host.
+    ports:
+      - "3000:3000"
+    networks:
+      - quizcard-network
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80"
+    networks:
+      - quizcard-network
+
+networks:
+  quizcard-network:
+    driver: bridge
+
+volumes:
+  quizcard-volume:
