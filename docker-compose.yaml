@@ -5,7 +5,6 @@ services:
     build: ./backend
     volumes:
       - quizcard-volume:/usr/src/app/backend/data
-      #- ./data/questions.json:/data/questions.json  <<< useful if you want to rely on questions.json in local host.
     ports:
       - "3000:3000"
     networks:
